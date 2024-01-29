@@ -3,7 +3,7 @@ package me.jellysquid.mods.sodium.client.gui.screen;
 import me.jellysquid.mods.sodium.client.SodiumClientMod;
 import me.jellysquid.mods.sodium.client.gui.console.Console;
 import me.jellysquid.mods.sodium.client.gui.console.message.MessageLevel;
-import net.minecraft.client.Minecraft;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
@@ -57,11 +57,11 @@ public class ConfigCorruptedScreen extends Screen {
             Console.instance().logMessage(MessageLevel.INFO, Text.translatable("sodium.console.config_file_was_reset"), 3.0);
 
             SodiumClientMod.restoreDefaultOptions();
-            Minecraft.getInstance().setScreen(this.nextScreen.apply(this.prevScreen));
+            MinecraftClient.getInstance().setScreen(this.nextScreen.apply(this.prevScreen));
         }).dimensions(this.width - SCREEN_PADDING - BUTTON_WIDTH, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT).build());
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Go back"), (btn) -> {
-            Minecraft.getInstance().setScreen(this.prevScreen);
+            MinecraftClient.getInstance().setScreen(this.prevScreen);
         }).dimensions(SCREEN_PADDING, buttonY, BUTTON_WIDTH, BUTTON_HEIGHT).build());
     }
 
