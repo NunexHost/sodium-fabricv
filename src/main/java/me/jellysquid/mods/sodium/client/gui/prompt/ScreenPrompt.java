@@ -124,11 +124,11 @@ public class ScreenPrompt implements Element, Drawable {
         return false;
     }
 
- //   @Override
-//    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-//        if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
-//            this.close();
- //       }
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (keyCode == GLFW.GLFW_KEY_ESCAPE) {
+            this.close();
+        }
 
         return Element.super.keyPressed(keyCode, scanCode, modifiers);
     }
